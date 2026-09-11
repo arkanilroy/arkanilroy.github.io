@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arkanil Roy</title>
+<meta name="description" content="Arkanil Roy — Postdoctoral Researcher, Klem Research Group, Louisiana State University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e1512;
+    --bg-elevated: #131e19;
+    --text: #edf3ef;
+    --text-muted: #9fb3a8;
+    --text-faint: #62766c;
+    --accent: #6fdca6;
+    --accent-dim: #4a9975;
+    --line: rgba(159, 179, 168, 0.18);
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--text); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0 0 18px;
+  }
+
+  h1.name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+    color: var(--text);
+  }
+
+  .role {
+    font-size: 19px;
+    color: var(--text-muted);
+    max-width: 40ch;
+    margin: 0 0 30px;
+  }
+
+  .role strong { color: var(--text); font-weight: 500; }
+
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    font-size: 15px;
+  }
+
+  .hero-links a { color: var(--text-muted); border-bottom: 1px solid transparent; }
+  .hero-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* photo placeholder */
+  .portrait {
+    justify-self: center;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 1px dashed var(--text-faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 20px;
+    background: var(--bg-elevated);
+    overflow: hidden;
+  }
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .molecule {
+    position: absolute;
+    top: -60px;
+    right: -120px;
+    width: 520px;
+    height: 520px;
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .molecule circle { fill: var(--accent); }
+  .molecule line { stroke: var(--accent-dim); stroke-width: 1; }
+  .molecule .draw {
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+    animation: draw 1.8s ease-out forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  /* ---------- Sections ---------- */
+
+  section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  h2.section-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin: 0 0 28px;
+    color: var(--text);
+  }
+
+  .prose {
+    max-width: 68ch;
+    color: var(--text-muted);
+    font-size: 17px;
+  }
+  .prose p { margin: 0 0 18px; }
+  .prose strong { color: var(--text); font-weight: 500; }
+
+  .interests {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 28px;
+    margin-top: 8px;
+  }
+
+  .interest h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 15.5px;
+    color: var(--text);
+    margin: 0 0 8px;
+  }
+  .interest p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.55;
+  }
+  .interest .mark {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  /* ---------- Connect ---------- */
+
+  .connect-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 480px;
+    margin-top: 8px;
+  }
+
+  .connect-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    font-size: 16px;
+  }
+  .connect-list a:first-child { padding-top: 0; }
+  .connect-list a span.arrow {
+    color: var(--text-faint);
+    font-size: 14px;
+    transition: transform 0.15s ease, color 0.15s ease;
+  }
+  .connect-list a:hover span.arrow { color: var(--accent); transform: translateX(3px); }
+  .connect-list a:hover { color: var(--accent); }
+
+  .connect-list a span.label { color: var(--text-muted); font-size: 14px; }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    padding: 36px 0 60px;
+    color: var(--text-faint);
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 760px) {
+    .hero { padding: 64px 0 56px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .portrait { justify-self: start; width: 140px; height: 140px; }
+    .molecule { display: none; }
+    section { padding: 52px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="molecule" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line class="draw" x1="80" y1="120" x2="200" y2="60" />
+    <line class="draw" x1="200" y1="60" x2="320" y2="110" />
+    <line class="draw" x1="80" y1="120" x2="100" y2="230" />
+    <line class="draw" x1="200" y1="60" x2="210" y2="180" />
+    <line class="draw" x1="320" y1="110" x2="300" y2="220" />
+    <line class="draw" x1="210" y1="180" x2="100" y2="230" />
+    <line class="draw" x1="210" y1="180" x2="300" y2="220" />
+    <line class="draw" x1="100" y1="230" x2="150" y2="330" />
+    <line class="draw" x1="300" y1="220" x2="260" y2="330" />
+    <circle cx="80" cy="120" r="7" />
+    <circle cx="200" cy="60" r="7" />
+    <circle cx="320" cy="110" r="7" />
+    <circle cx="210" cy="180" r="9" />
+    <circle cx="100" cy="230" r="7" />
+    <circle cx="300" cy="220" r="7" />
+    <circle cx="150" cy="330" r="6" />
+    <circle cx="260" cy="330" r="6" />
+  </svg>
+
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Postdoctoral Researcher</p>
+      <h1 class="name">Arkanil Roy</h1>
+      <p class="role">Researching enzyme function at the intersection of <strong>quantum mechanics</strong>, <strong>molecular dynamics</strong>, and <strong>machine learning</strong> — <strong>Klem Research Group</strong>, Louisiana State University.</p>
+      <div class="hero-links">
+        <a href="https://github.com/arkanilroy" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/arkanil-roy" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=kmrT9nIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="#" id="cv-link" target="_blank" rel="noopener">CV (PDF)</a>
+      </div>
+    </div>
+
+    <!-- Replace the placeholder below with: <img src="your-photo.jpg" alt="Arkanil Roy"> -->
+    <div class="portrait">Add your photo<br>(220×220px works well)</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <h2 class="section-title">About</h2>
+    <div class="prose">
+      <p>I'm a postdoctoral researcher in the <strong>Klem Research Group</strong> at Louisiana State University, where I work on computational approaches to understanding and engineering enzyme function. Our lab combines quantum mechanical modeling, molecular dynamics simulation, and machine learning to study catalytic mechanisms and design novel biocatalysts.</p>
+      <p>I'm broadly interested in bridging fundamental theory with practical applications in medicine, biotechnology, and sustainability — using computation to answer questions that are hard to reach experimentally alone.</p>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2 class="section-title">Research interests</h2>
+    <div class="interests">
+      <div class="interest">
+        <h3><span class="mark"></span>Enzyme catalysis</h3>
+        <p>Understanding the mechanisms that make enzymes such efficient, selective catalysts.</p>
+      </div>
+      <div class="interest">
+        <h3><span class="mark"></span>Quantum mechanics &amp; MD</h3>
+        <p>Modeling reaction pathways and conformational dynamics at atomic resolution.</p>
+      </div>
+      <div class="interest">
+        <h3><span class="mark"></span>Machine learning</h3>
+        <p>Applying ML methods to accelerate biocatalyst design and mechanistic discovery.</p>
+      </div>
+      <div class="interest">
+        <h3><span class="mark"></span>Biocatalyst design</h3>
+        <p>Engineering novel enzyme systems for applications in sustainability and biotech.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="connect">
+    <h2 class="section-title">Connect</h2>
+    <div class="connect-list">
+      <a href="https://github.com/arkanilroy" target="_blank" rel="noopener">
+        <span>GitHub</span><span class="arrow">→</span>
+      </a>
+      <a href="https://www.linkedin.com/in/arkanil-roy" target="_blank" rel="noopener">
+        <span>LinkedIn</span><span class="arrow">→</span>
+      </a>
+      <a href="https://scholar.google.com/citations?user=kmrT9nIAAAAJ&hl=en" target="_blank" rel="noopener">
+        <span>Google Scholar</span><span class="arrow">→</span>
+      </a>
+      <a href="#" id="cv-link-2" target="_blank" rel="noopener">
+        <span>Curriculum Vitae <span class="label">(add link)</span></span><span class="arrow">→</span>
+      </a>
+      <a href="mailto:your.email@lsu.edu">
+        <span>Email <span class="label">(add address)</span></span><span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>&copy; <span id="year"></span> Arkanil Roy. Built with GitHub Pages.</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
