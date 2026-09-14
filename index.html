@@ -12,18 +12,19 @@
   :root {
     --bg: #0e1512;
     --bg-elevated: #131e19;
+    --bg-card: #101a15;
     --text: #edf3ef;
     --text-muted: #9fb3a8;
     --text-faint: #62766c;
     --accent: #6fdca6;
     --accent-dim: #4a9975;
-    --line: rgba(159, 179, 168, 0.18);
+    --amber: #e0b872;
+    --line: rgba(159, 179, 168, 0.16);
     --serif: "Fraunces", Georgia, serif;
     --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
   * { box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   @media (prefers-reduced-motion: reduce) {
@@ -49,33 +50,13 @@
     border-radius: 2px;
   }
 
-  .wrap {
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 32px; }
 
   /* ---------- Hero ---------- */
 
-  .hero {
-    position: relative;
-    overflow: hidden;
-    padding: 96px 0 80px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 48px;
-    align-items: center;
-  }
-
-  .eyebrow {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin: 0 0 18px;
-  }
+  .hero { position: relative; overflow: hidden; padding: 96px 0 80px; border-bottom: 1px solid var(--line); }
+  .hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+  .eyebrow { font-size: 14px; color: var(--text-muted); margin: 0 0 18px; }
 
   h1.name {
     font-family: var(--serif);
@@ -84,69 +65,32 @@
     line-height: 1.02;
     letter-spacing: -0.01em;
     margin: 0 0 20px;
-    color: var(--text);
   }
 
-  .role {
-    font-size: 19px;
-    color: var(--text-muted);
-    max-width: 40ch;
-    margin: 0 0 30px;
-  }
-
+  .role { font-size: 19px; color: var(--text-muted); max-width: 40ch; margin: 0 0 30px; }
   .role strong { color: var(--text); font-weight: 500; }
+  .role a { border-bottom: 1px solid transparent; }
+  .role a:hover { border-bottom-color: currentColor; }
 
-  .hero-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 22px;
-    font-size: 15px;
-  }
-
+  .hero-links { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 15px; }
   .hero-links a { color: var(--text-muted); border-bottom: 1px solid transparent; }
   .hero-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-  /* photo placeholder */
   .portrait {
     justify-self: center;
-    width: 220px;
-    height: 220px;
+    width: 220px; height: 220px;
     border-radius: 50%;
     border: 1px dashed var(--text-faint);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--text-faint);
-    font-size: 13px;
-    line-height: 1.5;
-    padding: 20px;
-    background: var(--bg-elevated);
-    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: var(--text-faint); font-size: 13px; line-height: 1.5;
+    padding: 20px; background: var(--bg-elevated); overflow: hidden;
   }
-  .portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 
-  .molecule {
-    position: absolute;
-    top: -60px;
-    right: -120px;
-    width: 520px;
-    height: 520px;
-    opacity: 0.55;
-    pointer-events: none;
-  }
+  .molecule { position: absolute; top: -60px; right: -120px; width: 520px; height: 520px; opacity: 0.5; pointer-events: none; }
   .molecule circle { fill: var(--accent); }
   .molecule line { stroke: var(--accent-dim); stroke-width: 1; }
-  .molecule .draw {
-    stroke-dasharray: 340;
-    stroke-dashoffset: 340;
-    animation: draw 1.8s ease-out forwards;
-  }
+  .molecule .draw { stroke-dasharray: 340; stroke-dashoffset: 340; animation: draw 1.8s ease-out forwards; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
 
   /* ---------- Sections ---------- */
@@ -154,88 +98,95 @@
   section { padding: 72px 0; border-bottom: 1px solid var(--line); }
   section:last-of-type { border-bottom: none; }
 
-  h2.section-title {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.6rem;
-    margin: 0 0 28px;
-    color: var(--text);
-  }
+  h2.section-title { font-family: var(--serif); font-weight: 500; font-size: 1.6rem; margin: 0 0 8px; }
+  .section-sub { color: var(--text-faint); font-size: 15px; margin: 0 0 32px; }
 
-  .prose {
-    max-width: 68ch;
-    color: var(--text-muted);
-    font-size: 17px;
-  }
+  .prose { max-width: 68ch; color: var(--text-muted); font-size: 17px; }
   .prose p { margin: 0 0 18px; }
   .prose strong { color: var(--text); font-weight: 500; }
 
-  .interests {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 28px;
-    margin-top: 8px;
+  .interests { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px; margin-top: 8px; }
+  .interest h3 { font-weight: 600; font-size: 15.5px; margin: 0 0 8px; }
+  .interest p { color: var(--text-muted); font-size: 15px; margin: 0; line-height: 1.55; }
+  .interest .mark { display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 8px; }
+
+  /* ---------- Timeline (Experience) ---------- */
+
+  .timeline { position: relative; margin-top: 8px; max-width: 72ch; }
+  .timeline::before {
+    content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px;
+    width: 1px; background: var(--line);
+  }
+  .tl-item { position: relative; padding-left: 32px; margin-bottom: 34px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: 0; top: 6px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--accent-dim);
+  }
+  .tl-item.current::before { border-color: var(--accent); background: var(--accent); }
+  .tl-date { font-size: 13.5px; color: var(--text-faint); margin: 0 0 4px; }
+  .tl-role { font-weight: 600; font-size: 16.5px; margin: 0 0 2px; }
+  .tl-org { color: var(--text-muted); font-size: 15px; margin: 0 0 8px; }
+
+  /* ---------- Education ---------- */
+
+  .edu-grid { display: grid; gap: 22px; margin-top: 8px; }
+  .edu-item { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 18px 0; border-top: 1px solid var(--line); }
+  .edu-item:first-child { border-top: none; padding-top: 0; }
+  .edu-date { color: var(--text-faint); font-size: 14px; padding-top: 2px; }
+  .edu-degree { font-weight: 600; font-size: 16px; margin: 0 0 3px; }
+  .edu-school { color: var(--text-muted); font-size: 15px; margin: 0; }
+  .edu-note { color: var(--text-faint); font-size: 14px; margin: 6px 0 0; }
+
+  /* ---------- Publications ---------- */
+
+  .pubs { display: flex; flex-direction: column; gap: 22px; margin-top: 8px; max-width: 74ch; }
+  .pub { padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .pub:last-child { border-bottom: none; padding-bottom: 0; }
+  .pub-title { font-size: 16.5px; font-weight: 500; margin: 0 0 6px; color: var(--text); line-height: 1.4; }
+  .pub-authors { color: var(--text-muted); font-size: 14.5px; margin: 0 0 6px; }
+  .pub-authors .me { color: var(--text); font-weight: 500; }
+  .pub-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 13.5px; }
+  .pub-venue { color: var(--text-faint); }
+  .pub-badge { color: var(--amber); border: 1px solid rgba(224,184,114,0.4); border-radius: 3px; padding: 1px 8px; font-size: 12.5px; }
+  .pub a.doi { color: var(--accent-dim); }
+  .pub a.doi:hover { color: var(--accent); }
+
+  /* ---------- Skills ---------- */
+
+  .skills-group { margin-bottom: 26px; }
+  .skills-group:last-child { margin-bottom: 0; }
+  .skills-label { font-size: 13.5px; color: var(--text-faint); margin: 0 0 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 13.5px; color: var(--text-muted);
+    border: 1px solid var(--line); border-radius: 5px;
+    padding: 5px 11px; background: var(--bg-card);
   }
 
-  .interest h3 {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 15.5px;
-    color: var(--text);
-    margin: 0 0 8px;
-  }
-  .interest p {
-    color: var(--text-muted);
-    font-size: 15px;
-    margin: 0;
-    line-height: 1.55;
-  }
-  .interest .mark {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    margin-right: 8px;
-  }
+  /* ---------- Achievements ---------- */
+
+  .achievements { display: flex; flex-direction: column; gap: 16px; max-width: 68ch; margin-top: 8px; }
+  .ach-item { display: flex; gap: 14px; align-items: baseline; }
+  .ach-year { color: var(--amber); font-size: 14px; min-width: 52px; flex-shrink: 0; }
+  .ach-text { color: var(--text-muted); font-size: 15.5px; }
+  .ach-text strong { color: var(--text); font-weight: 500; }
 
   /* ---------- Connect ---------- */
 
-  .connect-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    max-width: 480px;
-    margin-top: 8px;
-  }
-
+  .connect-list { display: flex; flex-direction: column; gap: 0; max-width: 480px; margin-top: 8px; }
   .connect-list a {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line);
-    color: var(--text);
-    font-size: 16px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--text); font-size: 16px;
   }
   .connect-list a:first-child { padding-top: 0; }
-  .connect-list a span.arrow {
-    color: var(--text-faint);
-    font-size: 14px;
-    transition: transform 0.15s ease, color 0.15s ease;
-  }
+  .connect-list a span.arrow { color: var(--text-faint); font-size: 14px; transition: transform 0.15s ease, color 0.15s ease; }
   .connect-list a:hover span.arrow { color: var(--accent); transform: translateX(3px); }
   .connect-list a:hover { color: var(--accent); }
-
   .connect-list a span.label { color: var(--text-muted); font-size: 14px; }
 
-  /* ---------- Footer ---------- */
-
-  footer {
-    padding: 36px 0 60px;
-    color: var(--text-faint);
-    font-size: 13.5px;
-  }
+  footer { padding: 36px 0 60px; color: var(--text-faint); font-size: 13.5px; }
 
   @media (max-width: 760px) {
     .hero { padding: 64px 0 56px; }
@@ -243,6 +194,7 @@
     .portrait { justify-self: start; width: 140px; height: 140px; }
     .molecule { display: none; }
     section { padding: 52px 0; }
+    .edu-item { grid-template-columns: 1fr; gap: 4px; }
   }
 </style>
 </head>
@@ -269,21 +221,23 @@
     <circle cx="260" cy="330" r="6" />
   </svg>
 
-<div class="wrap hero-grid">
-  <div>
-    <p class="eyebrow">Postdoctoral Researcher</p>
-    <h1 class="name">Arkanil Roy</h1>
-    <p class="role">Researching enzyme function at the intersection of <strong>quantum mechanics</strong>, <strong>molecular dynamics</strong>, and <strong>machine learning</strong>.<br><a href="https://klem-research-group.github.io/" target="_blank" rel="noopener"><strong>Klem Research Group</strong></a><br>Louisiana State University.</p>
-    <div class="hero-links">
-      <a href="https://github.com/arkanilroy" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/arkanil-roy" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://scholar.google.com/citations?user=kmrT9nIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-      <a href="#" id="cv-link" target="_blank" rel="noopener">CV (PDF)</a>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Postdoctoral Researcher</p>
+      <h1 class="name">Arkanil Roy</h1>
+      <p class="role">Researching enzyme function at the intersection of <strong>quantum mechanics</strong>, <strong>molecular dynamics</strong>, and <strong>machine learning</strong>.<br><a href="https://klem-research-group.github.io/" target="_blank" rel="noopener"><strong>Klem Research Group</strong></a><br>Louisiana State University.</p>
+      <div class="hero-links">
+        <a href="https://github.com/arkanilroy" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/arkanil-roy" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=kmrT9nIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+      </div>
     </div>
-  </div>
 
     <!-- Replace the placeholder below with: <img src="your-photo.jpg" alt="Arkanil Roy"> -->
-    <div class="portrait"><img src="website_picture.JPG" alt="Arkanil Roy"></div>
+    <div class="portrait">
+      <img src="website_picture.JPG" alt="Arkanil Roy">
+    </div>
   </div>
 </header>
 
@@ -292,8 +246,8 @@
   <section id="about">
     <h2 class="section-title">About</h2>
     <div class="prose">
-      <p>I'm a postdoctoral researcher in the <strong>Klem Research Group</strong> at Louisiana State University, where I work on computational approaches to understanding and engineering enzyme function. Our lab combines quantum mechanical modeling, molecular dynamics simulation, and machine learning to study catalytic mechanisms and design novel biocatalysts.</p>
-      <p>I'm broadly interested in bridging fundamental theory with practical applications in medicine, biotechnology, and sustainability — using computation to answer questions that are hard to reach experimentally alone.</p>
+      <p>I'm a postdoctoral researcher in the <strong>Klem Research Group</strong> at Louisiana State University. My background is in computational chemistry, where I use quantum mechanics, molecular dynamics, and machine learning to study how enzymes work at the atomic level — and where that mechanism breaks down in disease.</p>
+      <p>My Ph.D. work under Dr. G. Andrés Cisneros focused on DNA polymerases: modeling the structural and catalytic effects of disease-associated mutations, comparing metal-ion dependence, and developing new computational methods for multipole-based force fields. That work has led to publications in <em>Science Advances</em>, <em>JCTC</em>, <em>JCIM</em>, and <em>Protein Science</em>.</p>
     </div>
   </section>
 
@@ -301,20 +255,182 @@
     <h2 class="section-title">Research interests</h2>
     <div class="interests">
       <div class="interest">
-        <h3><span class="mark"></span>Enzyme catalysis</h3>
-        <p>Understanding the mechanisms that make enzymes such efficient, selective catalysts.</p>
+        <h3><span class="mark"></span>DNA polymerase mechanisms</h3>
+        <p>Structural and catalytic effects of disease-associated mutations, studied via hybrid QM/MM and MD.</p>
       </div>
       <div class="interest">
-        <h3><span class="mark"></span>Quantum mechanics &amp; MD</h3>
-        <p>Modeling reaction pathways and conformational dynamics at atomic resolution.</p>
+        <h3><span class="mark"></span>Multiscale simulation</h3>
+        <p>QM/MM, molecular dynamics, and transition-path methods to capture reaction mechanisms and conformational change.</p>
       </div>
       <div class="interest">
-        <h3><span class="mark"></span>Machine learning</h3>
-        <p>Applying ML methods to accelerate biocatalyst design and mechanistic discovery.</p>
+        <h3><span class="mark"></span>Computational method development</h3>
+        <p>Improving force-field electrostatics through the Gaussian Electrostatic Model (GEM).</p>
       </div>
       <div class="interest">
-        <h3><span class="mark"></span>Biocatalyst design</h3>
-        <p>Engineering novel enzyme systems for applications in sustainability and biotech.</p>
+        <h3><span class="mark"></span>Structural bioinformatics</h3>
+        <p>Homology and ML-based structure prediction (RosettaFold, AlphaFold) applied to enzyme systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      <div class="tl-item current">
+        <p class="tl-date">September 2025 — Present</p>
+        <p class="tl-role">Postdoctoral Researcher</p>
+        <p class="tl-org">Department of Biological Sciences, Louisiana State University · PI: Dr. Heidi Klem</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">June 2021 — July 2025</p>
+        <p class="tl-role">Graduate Research Assistant</p>
+        <p class="tl-org">Department of Chemistry, University of North Texas &amp; University of Texas at Dallas · Advisor: Dr. G. Andrés Cisneros</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">August 2020 — June 2021</p>
+        <p class="tl-role">Graduate Teaching Assistant</p>
+        <p class="tl-org">Department of Chemistry, University of North Texas</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">August 2018 — May 2020</p>
+        <p class="tl-role">Graduate Teaching Assistant</p>
+        <p class="tl-org">Department of Chemistry, Missouri State University · Advisor: Dr. Matthew R. Siebert</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <p class="edu-date">2025</p>
+        <div>
+          <p class="edu-degree">Ph.D. in Chemistry</p>
+          <p class="edu-school">University of Texas at Dallas &amp; University of North Texas · Advisor: Dr. G. Andrés Cisneros</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <p class="edu-date">2020</p>
+        <div>
+          <p class="edu-degree">M.S. in Chemistry</p>
+          <p class="edu-school">Missouri State University · Advisor: Dr. Matthew R. Siebert</p>
+          <p class="edu-note">Thesis: In silico conversion of biodiesel to gasoline</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <p class="edu-date">2018</p>
+        <div>
+          <p class="edu-degree">B.Sc. in Microbiology and Biochemistry</p>
+          <p class="edu-school">St. Xavier's College, Mumbai</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2 class="section-title">Publications</h2>
+    <p class="section-sub">Full list on <a href="https://scholar.google.com/citations?user=kmrT9nIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    <div class="pubs">
+
+      <div class="pub">
+        <p class="pub-title">Comparison of Magnesium and Manganese Ions on the Structural and Catalytic Properties of Human DNA Polymerase Gamma</p>
+        <p class="pub-authors"><span class="me">Arkanil Roy</span>, G. Andrés Cisneros</p>
+        <div class="pub-meta">
+          <span class="pub-venue">JCTC</span>
+          <span class="pub-badge">Journal Cover</span>
+          <a class="doi" href="https://doi.org/10.1021/acs.jctc.5c00435" target="_blank" rel="noopener">doi.org/10.1021/acs.jctc.5c00435</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <p class="pub-title">An Interaction Network in the Polymerase Active Site Is a Prerequisite for Watson-Crick Base Pairing in Pol γ</p>
+        <p class="pub-authors">Joon Park, Geoffrey Herrmann, <span class="me">Arkanil Roy</span>, Christie Shumate, G. Andrés Cisneros, Whitney Yin</p>
+        <div class="pub-meta">
+          <span class="pub-venue">Science Advances</span>
+          <a class="doi" href="https://doi.org/10.1126/sciadv.adl3214" target="_blank" rel="noopener">doi.org/10.1126/sciadv.adl3214</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <p class="pub-title">Computational Studies on the Functional and Structural Impact of Pathogenic Mutations in Enzymes</p>
+        <p class="pub-authors"><span class="me">Arkanil Roy</span>, Upeksha C. Dissanayake, Yazdan Maghsoud, Sarthi Polara, Tanay Debnath, G. Andrés Cisneros</p>
+        <div class="pub-meta">
+          <span class="pub-venue">Protein Science · Review Article</span>
+          <a class="doi" href="https://doi.org/10.1002/pro.70081" target="_blank" rel="noopener">doi.org/10.1002/pro.70081</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <p class="pub-title">Effects of the Y432S Cancer-Associated Variant on the Reaction Mechanism of Human DNA Polymerase κ</p>
+        <p class="pub-authors">Yazdan Maghsoud, <span class="me">Arkanil Roy</span>, Emmett M. Leddin, G. Andrés Cisneros</p>
+        <div class="pub-meta">
+          <span class="pub-venue">JCIM</span>
+          <a class="doi" href="https://doi.org/10.1021/acs.jcim.4c00339" target="_blank" rel="noopener">doi.org/10.1021/acs.jcim.4c00339</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <p class="pub-title">Implementation of the Discrete Picard Condition in Tychonov Regularization for the Optimization of the Regularization Factor</p>
+        <p class="pub-authors"><span class="me">Arkanil Roy</span>, G. Andrés Cisneros</p>
+        <div class="pub-meta">
+          <span class="pub-venue">JCP</span>
+          <span class="pub-badge">Under Review</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-group">
+      <p class="skills-label">Software &amp; simulation</p>
+      <div class="tags">
+        <span class="tag">AMBER</span><span class="tag">TINKER</span><span class="tag">Gaussian16</span>
+        <span class="tag">ORCA</span><span class="tag">Psi4</span><span class="tag">LICHEM</span>
+        <span class="tag">NAMD</span><span class="tag">OpenMM</span><span class="tag">GROMACS</span>
+        <span class="tag">GEM</span><span class="tag">Quantum Espresso</span><span class="tag">RosettaFold</span>
+        <span class="tag">AlphaFold</span><span class="tag">CADD / AutoDock</span><span class="tag">MODELLER</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <p class="skills-label">Languages &amp; environments</p>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">Fortran90</span>
+        <span class="tag">R</span><span class="tag">Scala</span><span class="tag">Java</span>
+        <span class="tag">MATLAB</span><span class="tag">Bash</span><span class="tag">Git / GitHub</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <p class="skills-label">Visualization</p>
+      <div class="tags">
+        <span class="tag">VMD</span><span class="tag">PyMOL</span><span class="tag">ChimeraX</span>
+        <span class="tag">Avogadro</span><span class="tag">GaussView</span><span class="tag">Tableau</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <p class="skills-label">Systems &amp; analysis</p>
+      <div class="tags">
+        <span class="tag">HPC (PBS / SLURM)</span><span class="tag">CUDA</span><span class="tag">Linux (RHEL/Ubuntu/Debian)</span>
+        <span class="tag">PCA &amp; Clustering</span><span class="tag">Markov State Modeling</span><span class="tag">LaTeX / Overleaf</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <h2 class="section-title">Achievements</h2>
+    <div class="achievements">
+      <div class="ach-item">
+        <span class="ach-year">2024</span>
+        <span class="ach-text">School of Natural Sciences and Mathematics <strong>Travel Award</strong> to present at the 2024 ACS National Conference, Denver.</span>
+      </div>
+      <div class="ach-item">
+        <span class="ach-year">2023</span>
+        <span class="ach-text">Selected for <strong>Sci-Mix</strong>, a poster session for exceptional submissions, 2023 ACS Fall National Conference, San Francisco.</span>
+      </div>
+      <div class="ach-item">
+        <span class="ach-year">2020</span>
+        <span class="ach-text">Awarded the <strong>Robert E. Lloyd Scholarship</strong> for summer graduate students, Department of Chemistry.</span>
       </div>
     </div>
   </section>
@@ -331,11 +447,11 @@
       <a href="https://scholar.google.com/citations?user=kmrT9nIAAAAJ&hl=en" target="_blank" rel="noopener">
         <span>Google Scholar</span><span class="arrow">→</span>
       </a>
-      <a href="#" id="cv-link-2" target="_blank" rel="noopener">
-        <span>Curriculum Vitae <span class="label">(add link)</span></span><span class="arrow">→</span>
+      <a href="resume.pdf" target="_blank" rel="noopener">
+        <span>Curriculum Vitae</span><span class="arrow">→</span>
       </a>
-      <a href="mailto:your.email@lsu.edu">
-        <span>Email <span class="label">(add address)</span></span><span class="arrow">→</span>
+      <a href="mailto:aroy50@lsu.edu">
+        <span>Email</span><span class="arrow">→</span>
       </a>
     </div>
   </section>
@@ -352,4 +468,3 @@
 
 </body>
 </html>
-
